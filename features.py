@@ -5,13 +5,6 @@ from core.utils import *
 import numpy as np
 import os
 import hickle
-# import json
-# import pandas as pd
-
-
-def show_list(image_list):
-    for each in image_list:
-        print(each)
 
 
 def comp(x, y):
