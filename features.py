@@ -36,11 +36,10 @@ def main():
         video_frames_size = 30
         for each in type:
             path = PATH + '/data/' + each + '/'
-            save_path_feats = path + 'AAAAfeatures_' + each + '.hkl'
-            # save_path_labels_all = path + 'labels_all_' + each + '.hkl'
-            save_path_labels_all = path + 'AAAAlabels_all_' + each + '.pkl'
+            save_path_feats = path + 'features_' + each + '.hkl'
+            save_path_labels_all = path + 'labels_all_' + each + '.pkl'
             video_filename = load_pickle(path + 'video_filenames_' + each + '.pkl')
-            video_filename = video_filename[0:10]
+            video_filename = video_filename[0:-1] # to select certain number of videos
             labels = load_pickle(path + 'labels_' + each + '.pkl')
 
             # gather the whole data in the current type
@@ -48,7 +47,7 @@ def main():
             all_labels = [None] * len(video_filename)
 
             for idx, vf in enumerate(video_filename):
-                if len(list(os.walk(vf))[0][-1] ) > 0:
+                if len(list(os.walk(vf))[0][-1] ) > 10: #only read valid video
                     images_list = sorted(list(os.walk(vf))[0][-1], cmp=comp)
                     cur_images_path = [vf + '/' + image for image in images_list]
                     cur_labels = labels[idx]
@@ -67,7 +66,6 @@ def main():
             print 'strat to save feats and labels.'
             # use hickle to save huge feature vectors
             hickle.dump(all_feats, save_path_feats)
-            # hickle.dump(all_labels, save_path_labels_all)
             save_pickle(all_labels,save_path_labels_all)
             print ("Saved %s.." % save_path_feats)
 
