@@ -7,7 +7,6 @@ vaild_folders = 0
 for folder in folders:
     folder_path = image_path + folder + '/'
     image_folders = list(os.listdir(folder_path))
-    print image_folders
     for images in image_folders:
         if os.path.exists(folder_path + images + '/'):
             num = len(list(os.walk(folder_path + images + '/'))[0][2])
