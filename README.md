@@ -4,7 +4,10 @@ This is a SURF project from Xi'an JiaoTong- Liverpool University.
 
 This repository is just to record my code version. The completed code and results please see my SURF team member JingWei's github:https://github.com/Adopteruf/Action_Recognition_using_Visual_Attention
 
+
+
 Reference:
+
 Author's Theano implementation: https://github.com/kracwarlock/action-recognition-visual-attention
 
 Show, Attend and Tell: Neural Image Caption Generation with Visual Attention: https://arxiv.org/abs/1502.03044
